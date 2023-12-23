@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bejyviqifmle2"]
+
+[ext_resource type="Texture2D" uid="uid://b3u4oh40ajesq" path="res://Pixel Assets/Weapons/lazer gun.png" id="1_o7ukg"]
+[ext_resource type="Script" path="res://Scripts/Weapons/LazerGun/LazerGun.cs" id="2_b3jju"]
+
+[node name="LazerGun" type="Sprite2D"]
+position = Vector2(18, -12)
+scale = Vector2(2.23047, 1.35691)
+texture = ExtResource("1_o7ukg")
+centered = false
+script = ExtResource("2_b3jju")

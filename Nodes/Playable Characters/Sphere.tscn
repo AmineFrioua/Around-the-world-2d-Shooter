@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d255sm6m7833l"]
+
+[ext_resource type="Script" path="res://Scripts/Playable Characters/Sphere.cs" id="1_1tjgf"]
+[ext_resource type="Texture2D" uid="uid://c1nkm51qkkrtt" path="res://Pixel Assets/Playable Characters/sphere.png" id="2_ppslh"]
+[ext_resource type="PackedScene" uid="uid://bnhwo86tpsh6x" path="res://Nodes/Stat Compoments/StatBar.tscn" id="2_yro22"]
+[ext_resource type="PackedScene" uid="uid://bejyviqifmle2" path="res://Nodes/Weapons/LazerGun/LazerGun.tscn" id="3_b71c4"]
+[ext_resource type="PackedScene" uid="uid://bdyi4rex2r446" path="res://Nodes/Stat Compoments/CollisionArea.tscn" id="5_frdab"]
+
+[node name="Sphere" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_1tjgf")
+
+[node name="StatBar" parent="." instance=ExtResource("2_yro22")]
+offset_left = -28.0
+offset_top = 25.0
+offset_right = 27.0
+offset_bottom = 35.0
+value = 100.0
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="MainBody" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.177315, 0.177315)
+texture = ExtResource("2_ppslh")
+
+[node name="LazerGun" parent="Sprites" instance=ExtResource("3_b71c4")]
+ShootRate = 0.04
+
+[node name="CollisionArea" parent="." instance=ExtResource("5_frdab")]
+position = Vector2(18.1221, -3.0591)
+polygon = PackedVector2Array(-41.1221, 7.0591, -41.1221, 0.0590973, -40.1221, -3.9409, -38.1221, -7.9409, -34.1221, -12.9409, -28.1221, -16.9409, -24.1221, -17.9409, -16.1221, -17.9409, -8.12209, -14.9409, -2.12209, -7.9409, -0.122093, -1.9409, 0.877907, 0.0590973, 0.877907, 7.0591, -1.12209, 13.0591, -5.12209, 19.0591, -12.1221, 24.0591, -15.1221, 25.0591, -25.1221, 25.0591, -32.1221, 22.0591, -36.1221, 18.0591, -38.1221, 15.0591)

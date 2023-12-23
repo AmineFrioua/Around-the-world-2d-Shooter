@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://yayi6sv86ars"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/LazerGun/Bullet.cs" id="1_vx188"]
+[ext_resource type="Texture2D" uid="uid://cfk3ks1f4mabb" path="res://Pixel Assets/Particles/lazer beam.png" id="2_jdunq"]
+
+[node name="LazerGunBullet" type="Area2D"]
+script = ExtResource("1_vx188")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -1, -2, -4, 1, -4, 3, -3, 6, -2, 7, -1, 6, 1, 3, 2, 1, 3, -2, 3, -4, 2, -7, 1)
+
+[node name="Bullet" type="Sprite2D" parent="."]
+texture = ExtResource("2_jdunq")

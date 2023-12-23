@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnhwo86tpsh6x"]
+
+[ext_resource type="Script" path="res://Scripts/Stat Components/StatBar.cs" id="1_2sm4u"]
+
+[node name="StatBar" type="ProgressBar"]
+offset_left = -27.0
+offset_right = 28.0
+offset_bottom = 10.0
+show_percentage = false
+script = ExtResource("1_2sm4u")
