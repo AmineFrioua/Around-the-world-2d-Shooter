@@ -19,6 +19,10 @@ config/icon="res://Pixel Assets/Icons/Main Icon.png"
 
 project/assembly_name="Around The World Shooter"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Valossy/plugin.cfg")
+
 [input]
 
 Up={
