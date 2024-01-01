@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpp4bnp4h1ru"
-path="res://.godot/imported/Tiles- Tunisia.png-b39b93e3266f51764f689017887d32d3.ctex"
+uid="uid://20gbds8kd26n"
+path="res://.godot/imported/Tunisian Door 1.png-2eac6dd2667dd1015dde7197463bef88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Assets/Tiles-Maps/Tiles- Tunisia.png"
-dest_files=["res://.godot/imported/Tiles- Tunisia.png-b39b93e3266f51764f689017887d32d3.ctex"]
+source_file="res://Pixel Assets/Tiles-Maps/Tunisian Door 1.png"
+dest_files=["res://.godot/imported/Tunisian Door 1.png-2eac6dd2667dd1015dde7197463bef88.ctex"]
 
 [params]
 

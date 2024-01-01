@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Around The World Shooter"
-run/main_scene="res://Nodes/Levels/level.tscn"
+run/main_scene="res://Nodes/Levels/Tunisia/Map 1.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://Pixel Assets/Icons/Main Icon.png"
 
@@ -21,7 +21,7 @@ project/assembly_name="Around The World Shooter"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Valossy/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

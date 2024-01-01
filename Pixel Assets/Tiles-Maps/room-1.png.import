@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpp4bnp4h1ru"
-path="res://.godot/imported/Tiles- Tunisia.png-b39b93e3266f51764f689017887d32d3.ctex"
+uid="uid://csnber5rxul81"
+path="res://.godot/imported/room-1.png-5f441bb2fc7df9229aedbf33d8278cf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Assets/Tiles-Maps/Tiles- Tunisia.png"
-dest_files=["res://.godot/imported/Tiles- Tunisia.png-b39b93e3266f51764f689017887d32d3.ctex"]
+source_file="res://Pixel Assets/Tiles-Maps/room-1.png"
+dest_files=["res://.godot/imported/room-1.png-5f441bb2fc7df9229aedbf33d8278cf9.ctex"]
 
 [params]
 
