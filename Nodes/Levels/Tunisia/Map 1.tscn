@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dam1pk32x3cor"]
+[gd_scene load_steps=16 format=3 uid="uid://dam1pk32x3cor"]
 
 [ext_resource type="Texture2D" uid="uid://20gbds8kd26n" path="res://Pixel Assets/Tiles-Maps/Tunisian Door 1.png" id="1_5xomm"]
+[ext_resource type="PackedScene" uid="uid://c3813grv86v2s" path="res://Nodes/Enemies/Chachia.tscn" id="1_47p7i"]
 [ext_resource type="Texture2D" uid="uid://csnber5rxul81" path="res://Pixel Assets/Tiles-Maps/room-1.png" id="2_ba2ff"]
 [ext_resource type="Texture2D" uid="uid://wdjsv3yoa5r6" path="res://Pixel Assets/Props/lightbulb.png" id="3_g2vik"]
 [ext_resource type="Texture2D" uid="uid://busthprod0k1c" path="res://Pixel Assets/Props/Birra.png" id="4_3m3r6"]
@@ -9643,6 +9644,12 @@ sources/5 = SubResource("TileSetAtlasSource_jw1dt")
 [node name="Level" type="Node2D"]
 position = Vector2(582, 0)
 
+[node name="Chachia4" parent="." instance=ExtResource("1_47p7i")]
+position = Vector2(318, 160)
+
+[node name="Chachia3" parent="." instance=ExtResource("1_47p7i")]
+position = Vector2(-362, 487)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5lpdn")
 collision_animatable = true
@@ -9661,3 +9668,9 @@ layer_2/tile_data = PackedInt32Array(327676, 5, 0, 393212, 5, 1, 458748, 5, 2, 5
 
 [node name="Sphere" parent="TileMap" instance=ExtResource("7_ogp4g")]
 position = Vector2(1, 309)
+
+[node name="Chachia" parent="." instance=ExtResource("1_47p7i")]
+position = Vector2(300, 431)
+
+[node name="Chachia2" parent="." instance=ExtResource("1_47p7i")]
+position = Vector2(-272, 217)

@@ -4,7 +4,8 @@ using System;
 public partial class Sphere: CharacterBody2D {
 	
  [Export]
-  public float MovementSpeed = 300.0f;
+  public float Speed = 300.0f;
+
   private Sprite2D lazerGun = null;
 
   public override void _Ready() {
@@ -16,11 +17,11 @@ public partial class Sphere: CharacterBody2D {
 	Vector2 velocity = Velocity;
 	Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
 	if (direction != Vector2.Zero) {
-	  velocity.X = direction.X * MovementSpeed;
-	  velocity.Y = direction.Y * MovementSpeed;
+	  velocity.X = direction.X * Speed;
+	  velocity.Y = direction.Y * Speed;
 	} else {
-	  velocity.X = Mathf.MoveToward(Velocity.X, 0, MovementSpeed);
-	  velocity.Y = Mathf.MoveToward(Velocity.Y, 0, MovementSpeed);
+	  velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+	  velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
 
 	}
 	Velocity = velocity;

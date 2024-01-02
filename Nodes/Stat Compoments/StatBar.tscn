@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Stat Components/StatBar.cs" id="1_2sm4u"]
 
 [node name="StatBar" type="ProgressBar"]
+modulate = Color(0.419608, 1, 1, 1)
 offset_left = -27.0
 offset_right = 28.0
 offset_bottom = 10.0
