@@ -26,14 +26,4 @@ public partial class Sphere: CharacterBody2D {
 	Velocity = velocity;
 	MoveAndSlide();
   }
-
-  public override void _Input(InputEvent @event) {
-	if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
-	  Vector2 clickPosition = mouseEvent.Position;
-	  GD.Print(mouseEvent.ButtonIndex);
-	  GD.Print("Mouse Clicked at: ", GetGlobalMousePosition());
-	  GD.Print("Objhect Clicked at: ", GlobalPosition);
-	  GD.Print("Objhect Clicked at: ", lazerGun.GlobalPosition);
-	}
-  }
 }
