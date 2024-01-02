@@ -1,13 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://yayi6sv86ars"]
+[gd_scene load_steps=6 format=3 uid="uid://yayi6sv86ars"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/Base/Bullet.cs" id="1_vx188"]
 [ext_resource type="Texture2D" uid="uid://cfk3ks1f4mabb" path="res://Pixel Assets/Particles/lazer beam.png" id="2_jdunq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cg1u"]
+atlas = ExtResource("2_jdunq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcdb0"]
+atlas = ExtResource("2_jdunq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yenxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cg1u")
+}],
+"loop": false,
+"name": &"collision",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcdb0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="LazerGunBullet" type="Area2D"]
+collision_layer = 16
+collision_mask = 4
 script = ExtResource("1_vx188")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-8, -1, -2, -4, 1, -4, 3, -3, 6, -2, 7, -1, 6, 1, 3, 2, 1, 3, -2, 3, -4, 2, -7, 1)
 
-[node name="Bullet" type="Sprite2D" parent="."]
-texture = ExtResource("2_jdunq")
+[node name="Bullet" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yenxl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Bullet" to="." method="OnAnimationFinished"]
