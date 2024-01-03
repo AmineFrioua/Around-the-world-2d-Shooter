@@ -5,10 +5,14 @@ public partial class Chachia : CharacterBody2D
 {
 	[Export]
   	public float Speed = 100.0f;
+	public StatBar StatBar;
 	private Vector2 targetPosition; // The position of the target
 	private bool hasTarget = false; // Whether a target is detected
 
-
+	public override void _Ready()
+	{
+		StatBar=GetNode<StatBar>("StatBar");
+	}
 	public override void _PhysicsProcess(double delta)
 	{
 		   Vector2 velocity = Vector2.Zero;

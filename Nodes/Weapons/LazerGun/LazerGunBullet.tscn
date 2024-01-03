@@ -32,7 +32,7 @@ animations = [{
 
 [node name="LazerGunBullet" type="Area2D"]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 20
 script = ExtResource("1_vx188")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

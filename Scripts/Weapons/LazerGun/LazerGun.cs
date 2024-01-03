@@ -12,7 +12,6 @@ public partial class LazerGun: Sprite2D {
 	
 private Vector2 lastMousePosition = Vector2.Zero;
   public override void _Ready() {
-	GD.Print(bulletScene);
 	gunBehavior= new GunBehavior(bulletScene, ShootRate) ;
 }
 
@@ -30,7 +29,6 @@ private Vector2 lastMousePosition = Vector2.Zero;
 	LookAt(GetGlobalMousePosition());
 	
 	if (isShooting) {
-		 GD.Print("Shoot");
 		 gunBehavior.ProcessShoot(delta, GlobalPosition, GetGlobalMousePosition(), this);
 	}
   }
