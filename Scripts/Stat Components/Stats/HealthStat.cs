@@ -4,14 +4,19 @@ using Valossy.Loggers;
 
 namespace AroundTheWorldShooter.Scripts.Stat_Components.Stats;
 
+[GlobalClass]
 public partial class HealthStat : Node, IStat
 {
+    [Signal]
+    public delegate void DeathEventHandler();
+
+    [Export()]
     public Control StatControl
     {
         get { return statControl; }
         set
         {
-            if (StatView is IStatView statView)
+            if (value is IStatView statView)
             {
                 this.statView = statView;
             }
@@ -24,23 +29,25 @@ public partial class HealthStat : Node, IStat
 
     public IStatView StatView
     {
-        get => statView;
+        get => this.statView;
     }
 
-    public int Minimum { get; set; }
-    public int Maximum { get; set; }
-    public int Value { get; private set; }
+    public string StatName
+    {
+        get => nameof(HealthStat);
+    }
 
     private IStatView statView;
 
     private Control statControl;
-
-    public override void _Ready()
-    {
-    }
-
+    
     public void AddValue(int value)
     {
-        Value = Math.Clamp(Value + value, Minimum, Maximum);
+        StatView.Value = Math.Clamp(StatView.Value + value, StatView.MinValue, StatView.MaxValue);
+
+        if (StatView.Value <= StatView.MinValue)
+        {
+            this.EmitSignal(nameof(Death));
+        }
     }
 }

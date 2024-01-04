@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class StatBar : ProgressBar
 {
@@ -7,7 +6,6 @@ public partial class StatBar : ProgressBar
 	
 	[Export]
 	public StatType statType = StatType.HEALTH;
-	public int MaxValue { get; set; } = 100;
 	public int CurrentValue { get; set; } = 100;
 	
 	// Called when the node enters the scene tree for the first time.

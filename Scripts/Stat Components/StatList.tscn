@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds42ja8qupxjk"]
+
+[ext_resource type="Script" path="res://Scripts/Stat Components/StatList.cs" id="1_2ahvp"]
+
+[node name="StatList" type="Node"]
+script = ExtResource("1_2ahvp")
