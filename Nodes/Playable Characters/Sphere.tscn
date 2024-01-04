@@ -28,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+value = 100.0
 script = ExtResource("2_6g3i2")
 
 [node name="Sprites" type="Node2D" parent="."]
