@@ -32,7 +32,15 @@ public partial class Chachia : CharacterBody2D
 
 		// Move the character
 		Velocity = velocity;
+		die();
 	MoveAndSlide();
+	}
+	
+	public void die() {
+		if (StatBar.CurrentValue==0){
+			// play death animation
+  			QueueFree();
+		}
 	}
 	
 	 // Method to update target position and detection status

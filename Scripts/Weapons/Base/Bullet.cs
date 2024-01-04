@@ -3,6 +3,7 @@ using System;
 
 public partial class Bullet: Area2D {
   public AnimatedSprite2D BulletAnimation;
+
   public Vector2 Velocity;
   [Export]
   public float Speed = 10;
@@ -13,6 +14,7 @@ public partial class Bullet: Area2D {
 	LookAt(GetGlobalMousePosition());
 	BulletAnimation = GetNode < AnimatedSprite2D >("Bullet");
 	BulletAnimation.AnimationFinished += () => OnAnimationFinished() ;
+	
 	BulletAnimation.Play("default");
   }
 

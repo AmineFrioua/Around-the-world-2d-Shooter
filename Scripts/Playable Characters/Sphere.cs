@@ -5,11 +5,13 @@ public partial class Sphere: CharacterBody2D {
 	
  [Export]
   public float Speed = 300.0f;
+	public StatBar StatBar;
 
   private Sprite2D lazerGun = null;
 
   public override void _Ready() {
 	lazerGun = GetNodeOrNull < Sprite2D > ("Sprites/LazerGun");
+			StatBar=GetNode<StatBar>("StatBar");
   }
 
   public override void _PhysicsProcess(double delta) {
@@ -25,6 +27,14 @@ public partial class Sphere: CharacterBody2D {
 
 	}
 	Velocity = velocity;
+	die();
 	MoveAndSlide();
-  }
+	}
+	
+	public void die() {
+		if (StatBar.CurrentValue==0){
+			// play death animation
+  			QueueFree();
+		}
+	}
 }
