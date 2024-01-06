@@ -9,37 +9,18 @@ namespace AroundTheWorldShooter.Scripts.Stat_Components;
 [GlobalClass]
 public partial class StatList : Node, IReadOnlyDictionary<string, IStat>
 {
-	private readonly Dictionary<string, IStat> stats;
+	public IStat this[string key] => stats[key];
 
-	public StatList()
+	public IEnumerable<string> Keys
 	{
-		stats = new Dictionary<string, IStat>();
+		get => stats.Keys;
 	}
 
-	public void OnChildEnteredTree(Node node)
+	public IEnumerable<IStat> Values
 	{
-		if (node is IStat stat)
-		{
-			stats.Add(stat.StatName, stat);
-		}
-		else
-		{
-			Logger.Error($"{nameof(IStat)} does not have proper interface");
-		}
+		get => stats.Values;
 	}
-
-	public void OnChildExitingTree(Node node)
-	{
-		if (node is IStat stat)
-		{
-			stats.Remove(stat.StatName);
-		}
-		else
-		{
-			Logger.Error($"{nameof(IStat)} does not have proper interface");
-		}
-	}
-
+	
 	public IEnumerator<KeyValuePair<string, IStat>> GetEnumerator()
 	{
 		return stats.GetEnumerator();
@@ -54,6 +35,38 @@ public partial class StatList : Node, IReadOnlyDictionary<string, IStat>
 	{
 		get => stats.Count;
 	}
+	
+	private readonly Dictionary<string, IStat> stats;
+
+	public StatList()
+	{
+		stats = new Dictionary<string, IStat>();
+	}
+
+	public override void _Ready()
+	{
+		foreach (Node node in GetChildren())
+		{
+			AddStat(node);
+		}
+	}
+
+	public void OnChildEnteredTree(Node node)
+	{
+		AddStat(node);
+	}
+
+	public void OnChildExitingTree(Node node)
+	{
+		if (node is IStat stat)
+		{
+			stats.Remove(stat.StatName);
+		}
+		else
+		{
+			Logger.Error($"{nameof(IStat)} does not have proper interface");
+		}
+	}
 
 	public bool ContainsKey(string key)
 	{
@@ -65,15 +78,17 @@ public partial class StatList : Node, IReadOnlyDictionary<string, IStat>
 		return stats.TryGetValue(key, out value);
 	}
 
-	public IStat this[string key] => stats[key];
-
-	public IEnumerable<string> Keys
+	private void AddStat(Node node)
 	{
-		get => stats.Keys;
-	}
-
-	public IEnumerable<IStat> Values
-	{
-		get => stats.Values;
+		if (node is IStat stat)
+		{
+			if(ContainsKey(stat.StatName) == true) return;
+			
+			stats.Add(stat.StatName, stat);
+		}
+		else
+		{
+			Logger.Error($"{nameof(IStat)} does not have proper interface");
+		}
 	}
 }
