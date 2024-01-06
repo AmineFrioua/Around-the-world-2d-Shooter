@@ -4,10 +4,10 @@ using System;
 public partial class Bullet: Area2D {
   public AnimatedSprite2D BulletAnimation;
 
+
   public Vector2 Velocity;
   [Export]
   public float Speed = 10;
-  private bool collision = false;
 
   // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
@@ -23,21 +23,21 @@ public partial class Bullet: Area2D {
 	Position += Velocity * Speed * (float) delta;
   }
 
-  private void _on_body_entered(Node2D body) {
-	
+  public void _on_body_entered(Node2D body) {
+	BulletAnimation.AnimationFinished += OnAnimationFinished ;
 	BulletAnimation.Play("collision");
-	collision = true;
 	
-	Chachia enemy = body as Chachia;
-	GD.Print(enemy);
+	
+	Chachia enemy = body as Chachia; 
+
 	if (enemy!= null)
 	{
-		enemy.StatBar.UpdateValue(-1);
+		//enemy.OnDamage();
 	}
   }
 
-	private void OnAnimationFinished() {
-	if (collision){
+	public void OnAnimationFinished() {
+			if (BulletAnimation.Animation == "collision"){
 			Speed = 0 ;
 	  		QueueFree();
 		}

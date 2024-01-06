@@ -5,13 +5,11 @@ public partial class Chachia : CharacterBody2D
 {
 	[Export]
   	public float Speed = 100.0f;
-	public StatBar StatBar;
 	private Vector2 targetPosition; // The position of the target
 	private bool hasTarget = false; // Whether a target is detected
 
 	public override void _Ready()
 	{
-		StatBar=GetNode<StatBar>("StatBar");
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -32,15 +30,8 @@ public partial class Chachia : CharacterBody2D
 
 		// Move the character
 		Velocity = velocity;
-		die();
-	MoveAndSlide();
-	}
 	
-	public void die() {
-		if (StatBar.CurrentValue==0){
-			// play death animation
-  			QueueFree();
-		}
+	  MoveAndSlide();
 	}
 	
 	 // Method to update target position and detection status

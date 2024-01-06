@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Scripts/Stat Components/StatList.tscn" id="6_wpab0"]
 [ext_resource type="Script" path="res://Scripts/Stat Components/Stats/HealthStat.cs" id="7_i28ib"]
 
-[node name="Sphere" type="CharacterBody2D"]
+[node name="Sphere" type="CharacterBody2D" node_paths=PackedStringArray("Stats")]
 collision_mask = 31
 script = ExtResource("1_1tjgf")
+Stats = NodePath("StatList")
 
 [node name="Controls" type="Control" parent="."]
 layout_mode = 3
@@ -52,3 +53,4 @@ StatControl = NodePath("../../Controls/HealthBar")
 
 [connection signal="child_entered_tree" from="StatList" to="StatList" method="OnChildEnteredTree"]
 [connection signal="child_exiting_tree" from="StatList" to="StatList" method="OnChildExitingTree"]
+[connection signal="Death" from="StatList/HealthStat" to="." method="OnDeath"]
