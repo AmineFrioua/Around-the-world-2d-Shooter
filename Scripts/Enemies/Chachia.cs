@@ -1,5 +1,6 @@
 using Godot;
-using System;
+using AroundTheWorldShooter.Scripts.Stat_Components;
+using AroundTheWorldShooter.Scripts.Stat_Components.Stats;
 
 public partial class Chachia : CharacterBody2D
 {
@@ -7,13 +8,11 @@ public partial class Chachia : CharacterBody2D
   	public float Speed = 100.0f;
 	private Vector2 targetPosition; // The position of the target
 	private bool hasTarget = false; // Whether a target is detected
+	[Export()] public StatList Stats { get; set; }
 
-	public override void _Ready()
-	{
-	}
 	public override void _PhysicsProcess(double delta)
 	{
-		   Vector2 velocity = Vector2.Zero;
+		Vector2 velocity = Vector2.Zero;
 		if (hasTarget)
 		{
 			// Calculate the direction to the target
@@ -47,13 +46,16 @@ public partial class Chachia : CharacterBody2D
 		hasTarget = false;
 	}
 	
-	private void OnBodyEntered(Node2D body)
-{
-	if (body is Sphere) // Assuming 'Sphere' is your target type
-	{
-		SetTargetPosition(body.GlobalPosition);
+	private void OnBodyEntered(Node2D body){
+		if (body is Sphere) // Assuming 'Sphere' is your target type
+		{
+			SetTargetPosition(body.GlobalPosition);
+		}
 	}
-}
+
+	public void OnDamage() {
+		Stats[HealthStat.StatName].AddValue(-1);
+	}
 
 private void OnBodyExited(Node2D body)
 {

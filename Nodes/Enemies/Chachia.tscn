@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3813grv86v2s"]
+[gd_scene load_steps=17 format=3 uid="uid://c3813grv86v2s"]
 
 [ext_resource type="PackedScene" uid="uid://b3eehpjod2tdj" path="res://Nodes/Stat Compoments/DetectionShape.tscn" id="1_cxovf"]
 [ext_resource type="Script" path="res://Scripts/Enemies/Chachia.cs" id="1_no2d8"]
 [ext_resource type="PackedScene" uid="uid://bnhwo86tpsh6x" path="res://Nodes/Stat Compoments/StatBar.tscn" id="1_q4iw0"]
 [ext_resource type="PackedScene" uid="uid://bdyi4rex2r446" path="res://Nodes/Stat Compoments/CollisionArea.tscn" id="2_gp1j3"]
 [ext_resource type="Texture2D" uid="uid://cv6vko1volr81" path="res://Pixel Assets/Enemies/Chachia.png" id="3_ww6n8"]
+[ext_resource type="Script" path="res://Nodes/Playable Characters/HealthBar.cs" id="4_5v0gs"]
 [ext_resource type="Script" path="res://Scripts/Stat Components/StatList.cs" id="6_1376m"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/HealthStat.cs" id="8_rrfv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q72mk"]
 radius = 114.63
@@ -65,10 +67,11 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Chachia" type="CharacterBody2D"]
+[node name="Chachia" type="CharacterBody2D" node_paths=PackedStringArray("Stats")]
 collision_layer = 16
 collision_mask = 15
 script = ExtResource("1_no2d8")
+Stats = NodePath("StatList")
 
 [node name="DetectionShape" parent="." instance=ExtResource("1_cxovf")]
 
@@ -82,6 +85,8 @@ offset_left = -29.0
 offset_top = 32.0
 offset_right = 26.0
 offset_bottom = 42.0
+value = 100.0
+script = ExtResource("4_5v0gs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -2)
@@ -97,8 +102,9 @@ polygon = PackedVector2Array(-24, 17, -22, 19, -21, 20, -17, 22, -11, 23, 11, 23
 [node name="StatList" type="Node" parent="."]
 script = ExtResource("6_1376m")
 
-[node name="StatList" type="Node" parent="StatList"]
-script = ExtResource("6_1376m")
+[node name="HealthStat" type="Node" parent="StatList" node_paths=PackedStringArray("StatControl")]
+script = ExtResource("8_rrfv5")
+StatControl = NodePath("../../StatBar")
 
 [connection signal="body_entered" from="DetectionShape" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="DetectionShape" to="." method="OnBodyExited"]

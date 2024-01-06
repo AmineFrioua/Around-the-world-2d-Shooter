@@ -35,7 +35,7 @@ public partial class Sphere : CharacterBody2D
 	}
 	
 	public void OnDamage() {
-		Stats[nameof(HealthStat.StatName)].AddValue(-1);
+		//Stats[HealthStat.StatName].AddValue(-1);
 	}
 
 	public void OnDeath()
