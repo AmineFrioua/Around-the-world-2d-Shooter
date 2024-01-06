@@ -60,6 +60,11 @@ public partial class Chachia : CharacterBody2D
 		
 		GD.Print("PEW");
 	}
+	
+	public void OnDeath()
+	{
+	// Replace with function body.
+	}
 
 	public void OnBodyExited(Node2D body)
 	{
@@ -69,3 +74,6 @@ public partial class Chachia : CharacterBody2D
 		}
 	}
 }
+
+
+
