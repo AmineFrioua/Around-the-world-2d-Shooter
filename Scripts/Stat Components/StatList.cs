@@ -45,10 +45,7 @@ public partial class StatList : Node, IReadOnlyDictionary<string, IStat>
 
 	public override void _Ready()
 	{
-		foreach (Node node in GetChildren())
-		{
-			AddStat(node);
-		}
+		
 	}
 
 	public void OnChildEnteredTree(Node node)

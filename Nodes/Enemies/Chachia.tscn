@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdyi4rex2r446" path="res://Nodes/Stat Compoments/CollisionArea.tscn" id="2_gp1j3"]
 [ext_resource type="Texture2D" uid="uid://cv6vko1volr81" path="res://Pixel Assets/Enemies/Chachia.png" id="3_ww6n8"]
 [ext_resource type="Script" path="res://Nodes/Playable Characters/HealthBar.cs" id="4_5v0gs"]
-[ext_resource type="Script" path="res://Scripts/Stat Components/StatList.cs" id="6_1376m"]
+[ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Scripts/Stat Components/StatList.tscn" id="7_nihjs"]
 [ext_resource type="Script" path="res://Scripts/Stat Components/Stats/HealthStat.cs" id="8_rrfv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q72mk"]
@@ -99,8 +99,7 @@ frame_progress = 0.243218
 [node name="CollisionArea" parent="." instance=ExtResource("2_gp1j3")]
 polygon = PackedVector2Array(-24, 17, -22, 19, -21, 20, -17, 22, -11, 23, 11, 23, 18, 21, 22, 20, 25, 17, 18, -19, 15, -23, 11, -24, 5, -25, 2, -28, -2, -28, -5, -25, -10, -24, -14, -22, -18, -20)
 
-[node name="StatList" type="Node" parent="."]
-script = ExtResource("6_1376m")
+[node name="StatList" parent="." instance=ExtResource("7_nihjs")]
 
 [node name="HealthStat" type="Node" parent="StatList" node_paths=PackedStringArray("StatControl")]
 script = ExtResource("8_rrfv5")

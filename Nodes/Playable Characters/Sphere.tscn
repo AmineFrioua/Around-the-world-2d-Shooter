@@ -51,6 +51,4 @@ polygon = PackedVector2Array(-24.1221, 25.0591, -16.1221, 25.0591, -9.1221, 22.0
 script = ExtResource("7_i28ib")
 StatControl = NodePath("../../Controls/HealthBar")
 
-[connection signal="child_entered_tree" from="StatList" to="StatList" method="OnChildEnteredTree"]
-[connection signal="child_exiting_tree" from="StatList" to="StatList" method="OnChildExitingTree"]
 [connection signal="Death" from="StatList/HealthStat" to="." method="OnDeath"]

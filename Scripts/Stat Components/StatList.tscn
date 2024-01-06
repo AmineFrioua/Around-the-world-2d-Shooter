@@ -4,3 +4,6 @@
 
 [node name="StatList" type="Node"]
 script = ExtResource("1_2ahvp")
+
+[connection signal="child_entered_tree" from="." to="." method="OnChildEnteredTree"]
+[connection signal="child_exiting_tree" from="." to="." method="OnChildExitingTree"]
