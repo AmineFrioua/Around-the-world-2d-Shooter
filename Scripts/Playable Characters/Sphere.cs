@@ -1,5 +1,6 @@
 using Godot;
 using AroundTheWorldShooter.Scripts.Stat_Components;
+using AroundTheWorldShooter.Scripts.Stat_Components.Stats;
 
 public partial class Sphere : CharacterBody2D
 {
@@ -34,7 +35,7 @@ public partial class Sphere : CharacterBody2D
 	}
 	
 	public void OnDamage() {
-		Stats[HealthStat.StatName].AddValue(-1);
+		Stats[nameof(HealthStat.StatName)].AddValue(-1);
 	}
 
 	public void OnDeath()
