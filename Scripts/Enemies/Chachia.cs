@@ -55,15 +55,12 @@ public partial class Chachia : CharacterBody2D
 
 	public void OnDamage()
 	{
-		GD.Print(Stats[nameof(HealthStat)]);
 		Stats[nameof(HealthStat)].AddValue(-1);
-		
-		GD.Print("PEW");
 	}
-	
+
 	public void OnDeath()
 	{
-	// Replace with function body.
+		 QueueFree();
 	}
 
 	public void OnBodyExited(Node2D body)
@@ -74,6 +71,3 @@ public partial class Chachia : CharacterBody2D
 		}
 	}
 }
-
-
-

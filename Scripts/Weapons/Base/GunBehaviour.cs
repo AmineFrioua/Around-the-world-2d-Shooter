@@ -12,7 +12,6 @@ public class GunBehavior
 	{
 		this.bulletScene = bulletScene;
 		ShootRate=shootRate ;
-		GD.Print(this.bulletScene);
 	}
 
 	public void ProcessShoot(double delta, Vector2 position, Vector2 targetPos, Node parent)
@@ -21,6 +20,7 @@ public class GunBehavior
 		if (timeSinceLastShot >= ShootRate)
 		{
 			ShootBullet(position, targetPos, parent);
+
 			timeSinceLastShot = 0f;
 		}
 	}
@@ -31,7 +31,7 @@ public class GunBehavior
 		var bulletInstance = (Bullet)bulletScene.Instantiate();
 		Vector2 direction = (targetPos - gunPosition).Normalized();
 		bulletInstance.GlobalPosition = gunPosition;
-		bulletInstance.Velocity = direction * bulletInstance.Speed; 
+		bulletInstance.Velocity = direction * bulletInstance.Speed;
 		parent.GetTree().Root.AddChild(bulletInstance);
 	}
 }
