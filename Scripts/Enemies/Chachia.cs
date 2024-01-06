@@ -57,6 +57,8 @@ public partial class Chachia : CharacterBody2D
 	{
 		GD.Print(Stats[nameof(HealthStat)]);
 		Stats[nameof(HealthStat)].AddValue(-1);
+		
+		GD.Print("PEW");
 	}
 
 	public void OnBodyExited(Node2D body)
