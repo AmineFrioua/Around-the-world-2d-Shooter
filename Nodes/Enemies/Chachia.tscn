@@ -107,3 +107,4 @@ StatControl = NodePath("../../StatBar")
 
 [connection signal="body_entered" from="DetectionShape" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="DetectionShape" to="." method="OnBodyExited"]
+[connection signal="Death" from="StatList/HealthStat" to="." method="OnDeath"]
