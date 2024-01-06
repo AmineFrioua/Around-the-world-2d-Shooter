@@ -25,15 +25,19 @@ public partial class Bullet: Area2D {
 
   public void _on_body_entered(Node2D body) {
 	BulletAnimation.AnimationFinished += OnAnimationFinished ;
+	
+
 	BulletAnimation.Play("collision");
 	
-	
 	Chachia enemy = body as Chachia; 
-
+	GD.Print(body);
+	GD.Print($"enemy {enemy}");
 	if (enemy!= null)
 	{
-		//enemy.OnDamage();
+		enemy.OnDamage();
 	}
+	
+
   }
 
 	public void OnAnimationFinished() {
