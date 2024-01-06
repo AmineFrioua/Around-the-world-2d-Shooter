@@ -67,11 +67,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Chachia" type="CharacterBody2D" node_paths=PackedStringArray("Stats")]
+[node name="Chachia" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 15
 script = ExtResource("1_no2d8")
-Stats = NodePath("StatList")
 
 [node name="DetectionShape" parent="." instance=ExtResource("1_cxovf")]
 
