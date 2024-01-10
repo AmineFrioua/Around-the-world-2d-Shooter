@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://d255sm6m7833l"]
 
 [ext_resource type="Script" path="res://Scripts/Playable Characters/Sphere.cs" id="1_1tjgf"]
-[ext_resource type="Script" path="res://Nodes/Playable Characters/HealthBar.cs" id="2_6g3i2"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthBar.cs" id="2_6g3i2"]
 [ext_resource type="Texture2D" uid="uid://c1nkm51qkkrtt" path="res://Pixel Assets/Playable Characters/sphere.png" id="2_ppslh"]
 [ext_resource type="PackedScene" uid="uid://bejyviqifmle2" path="res://Nodes/Weapons/LazerGun/LazerGun.tscn" id="3_b71c4"]
 [ext_resource type="PackedScene" uid="uid://bdyi4rex2r446" path="res://Nodes/Stat Compoments/CollisionArea.tscn" id="5_frdab"]
-[ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Scripts/Stat Components/StatList.tscn" id="6_wpab0"]
-[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/HealthStat.cs" id="7_i28ib"]
+[ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Nodes/Stat Compoments/StatList.tscn" id="6_wpab0"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthStat.cs" id="7_i28ib"]
 
 [node name="Sphere" type="CharacterBody2D" node_paths=PackedStringArray("Stats")]
 collision_mask = 31

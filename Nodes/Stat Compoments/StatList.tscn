@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://ds42ja8qupxjk"]
 
-[ext_resource type="Script" path="res://Scripts/Stat Components/StatList.cs" id="1_2ahvp"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/StatList.cs" id="1_oocok"]
 
 [node name="StatList" type="Node"]
-script = ExtResource("1_2ahvp")
+script = ExtResource("1_oocok")
 
 [connection signal="child_entered_tree" from="." to="." method="OnChildEnteredTree"]
 [connection signal="child_exiting_tree" from="." to="." method="OnChildExitingTree"]

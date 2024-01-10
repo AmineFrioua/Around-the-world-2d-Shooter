@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bnhwo86tpsh6x" path="res://Nodes/Stat Compoments/StatBar.tscn" id="1_q4iw0"]
 [ext_resource type="PackedScene" uid="uid://bdyi4rex2r446" path="res://Nodes/Stat Compoments/CollisionArea.tscn" id="2_gp1j3"]
 [ext_resource type="Texture2D" uid="uid://cv6vko1volr81" path="res://Pixel Assets/Enemies/Chachia.png" id="3_ww6n8"]
-[ext_resource type="Script" path="res://Nodes/Playable Characters/HealthBar.cs" id="4_5v0gs"]
-[ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Scripts/Stat Components/StatList.tscn" id="7_nihjs"]
-[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/HealthStat.cs" id="8_rrfv5"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthBar.cs" id="4_5v0gs"]
+[ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Nodes/Stat Compoments/StatList.tscn" id="7_nihjs"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthStat.cs" id="8_rrfv5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q72mk"]
 radius = 114.63

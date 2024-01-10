@@ -1,6 +1,7 @@
 using System;
 using Godot;
 using Valossy.Loggers;
+using AroundTheWorldShooter.Scripts.Stat_Components.Interfaces;
 
 namespace AroundTheWorldShooter.Scripts.Stat_Components.Stats;
 
