@@ -2,17 +2,16 @@ using Godot;
 using System;
 
 public partial class LazerGun: Sprite2D {
-	
+
   private GunBehavior gunBehavior;
   private PackedScene bulletScene = ResourceLoader.Load<PackedScene>("res://Nodes/Weapons/LazerGun/LazerGunBullet.tscn");
-  private bool isShooting = false;
-  private float timeSinceLastShot = 0f;
  [Export]
   public float ShootRate = 0.2f; // bullet per second
-	
+
 private Vector2 lastMousePosition = Vector2.Zero;
   public override void _Ready() {
-	gunBehavior= new GunBehavior(bulletScene, ShootRate) ;
+	gunBehavior= new GunBehavior(bulletScene, ShootRate ) ;
+
 }
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,25 +26,20 @@ private Vector2 lastMousePosition = Vector2.Zero;
 	  12 * (float) Math.Sin(orbitAngle)
 	);
 	LookAt(GetGlobalMousePosition());
-	
-	if (isShooting) {
-		 gunBehavior.ProcessShoot(delta, GlobalPosition, GetGlobalMousePosition(), this);
+
+	if (Input.IsActionPressed("Action")) {
+		if(Input.IsActionPressed("Charge")){
+			GD.Print("Charge");
+		}
+		else
+		{
+			gunBehavior.ProcessShoot(delta, GlobalPosition, GetGlobalMousePosition(), this);
+		}
+	}
+	else if (Input.IsActionPressed("Secondary Action"))
+	{
+		GD.Print("PEW");
 	}
   }
 
- public override void _UnhandledInput(InputEvent @event)
-	{
-		if (@event is InputEventMouseButton mouseEvent)
-		{
-			if (mouseEvent.ButtonIndex == MouseButton.Left  && mouseEvent.Pressed)
-			{
-				isShooting= true;
-				lastMousePosition = GetGlobalMousePosition();
-			}
-			else if( !mouseEvent.Pressed)
-			{
-				isShooting= false;
-			}
-		}
-	}
 }
