@@ -59,7 +59,7 @@ public partial class Chachia : CharacterBody2D
 
     public void OnDamage(int damage)
     {
-        Stats[nameof(HealthStat)].AddValue(damage);
+        Stats[nameof(HealthStat)].AddValue(-damage);
     }
 
     public void OnDeath()
