@@ -73,6 +73,8 @@ public partial class StunStatus : Node, IStatus
     {
         timerImmunity.Start(ImmunityDuration);
         
+        StatusView.Deactivate();
+        
         EmitSignal(nameof(StunRecovered));
     }
 
@@ -81,6 +83,8 @@ public partial class StunStatus : Node, IStatus
         if (immune == true) return;
 
         immune = true;
+        
+        StatusView.Activate();
 
         timerDuration.Start(duration);
 

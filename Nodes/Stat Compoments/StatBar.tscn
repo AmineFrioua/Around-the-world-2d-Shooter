@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnhwo86tpsh6x"]
 
-[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/StatBar.cs" id="1_jtweb"]
+[ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthBar.cs" id="1_pgftb"]
 
 [node name="StatBar" type="ProgressBar"]
 modulate = Color(0.419608, 1, 1, 1)
@@ -8,4 +8,4 @@ offset_left = -27.0
 offset_right = 28.0
 offset_bottom = 10.0
 show_percentage = false
-script = ExtResource("1_jtweb")
+script = ExtResource("1_pgftb")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3813grv86v2s"]
+[gd_scene load_steps=19 format=3 uid="uid://c3813grv86v2s"]
 
 [ext_resource type="PackedScene" uid="uid://b3eehpjod2tdj" path="res://Nodes/Stat Compoments/DetectionShape.tscn" id="1_cxovf"]
 [ext_resource type="Script" path="res://Scripts/Enemies/Chachia.cs" id="1_no2d8"]
 [ext_resource type="PackedScene" uid="uid://bdyi4rex2r446" path="res://Nodes/Stat Compoments/CollisionArea.tscn" id="2_gp1j3"]
 [ext_resource type="Texture2D" uid="uid://cv6vko1volr81" path="res://Pixel Assets/Enemies/Chachia.png" id="3_ww6n8"]
 [ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthBar.cs" id="4_5v0gs"]
+[ext_resource type="PackedScene" uid="uid://c2wgvaebcmvak" path="res://Nodes/StatusComponents/StunStatusView.tscn" id="6_pqo6k"]
 [ext_resource type="PackedScene" uid="uid://ds42ja8qupxjk" path="res://Nodes/Stat Compoments/StatList.tscn" id="7_nihjs"]
 [ext_resource type="Script" path="res://Scripts/Stat Components/Stats/Health/HealthStat.cs" id="8_rrfv5"]
 [ext_resource type="PackedScene" uid="uid://c8vmfevgbqcew" path="res://Nodes/StatusComponents/StatusList.tscn" id="9_qx3bh"]
@@ -110,6 +111,9 @@ grow_vertical = 0
 value = 100.0
 script = ExtResource("4_5v0gs")
 
+[node name="StunStatusView" parent="Controls" instance=ExtResource("6_pqo6k")]
+layout_mode = 1
+
 [node name="StatList" parent="." instance=ExtResource("7_nihjs")]
 
 [node name="HealthStat" type="Node" parent="StatList" node_paths=PackedStringArray("StatControl")]
@@ -118,7 +122,8 @@ StatControl = NodePath("../../Controls/HealthBar")
 
 [node name="StatusList" parent="." instance=ExtResource("9_qx3bh")]
 
-[node name="StunStatus" parent="StatusList" instance=ExtResource("10_utks5")]
+[node name="StunStatus" parent="StatusList" node_paths=PackedStringArray("StatusControl") instance=ExtResource("10_utks5")]
+StatusControl = NodePath("../../Controls/StunStatusView")
 
 [connection signal="body_entered" from="DetectionShape" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="DetectionShape" to="." method="OnBodyExited"]
