@@ -1,4 +1,3 @@
-using AroundTheWorldShooter.Scripts.Stat_Components.Interfaces;
 namespace AroundTheWorldShooter.Scripts.Stat_Components.Interfaces;
 
 public interface IStat

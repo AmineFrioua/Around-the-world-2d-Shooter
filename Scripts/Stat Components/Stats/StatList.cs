@@ -86,7 +86,7 @@ public partial class StatList : Node, IReadOnlyDictionary<string, IStat>
 		}
 		else
 		{
-			Logger.Error($"{nameof(IStat)} does not have proper interface");
+			Logger.Error($"{node.Name}: {nameof(IStat)} does not have proper interface");
 		}
 	}
 }
