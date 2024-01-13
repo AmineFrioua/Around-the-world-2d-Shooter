@@ -2,6 +2,7 @@
 
 public interface IStatusView
 {
-    public float Duration { get; set; }
-    public float Strength { get; set; }
+    void Activate();
+    void Deactivate();
+    void Update(float duration, params float[] parameters);
 }

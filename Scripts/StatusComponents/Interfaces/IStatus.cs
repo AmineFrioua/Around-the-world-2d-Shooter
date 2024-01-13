@@ -4,5 +4,5 @@ public interface IStatus
 {
     public IStatusView StatusView { get; }
     public string StatusName { get; }
-    public void Start(float duration, float strength);
+    public void Start(float duration, params float[] parameters);
 }
