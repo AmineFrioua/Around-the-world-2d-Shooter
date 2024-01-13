@@ -9,9 +9,11 @@ public partial class LazerGun : Sprite2D
 	private Timer primaryTimer;
 	private Timer secondaryTimer;
 	private Timer chargeTimer;
+	private Timer chargeDuration;
 	private bool isPrimary = true;
 	private bool isSecondary = true;
 	private bool isCharge = true;
+	private bool isCharging= false;
 
 	private Vector2 lastMousePosition = Vector2.Zero;
 	public override void _Ready()
@@ -20,6 +22,7 @@ public partial class LazerGun : Sprite2D
 		primaryTimer = GetNodeOrNull<Timer>("Primary Weapon Timer");
 		secondaryTimer = GetNodeOrNull<Timer>("Secondary Weapon Timer");
 		chargeTimer = GetNodeOrNull<Timer>("Charge Weapon Timer");
+		chargeDuration=GetNodeOrNull<Timer>("Charge Weapon Duration");
 
 	}
 
@@ -41,9 +44,8 @@ public partial class LazerGun : Sprite2D
 		{
 			if (Input.IsActionPressed("Charge") && isCharge)
 			{
-				GD.Print("Charge");
-				isCharge = false;
-				chargeTimer.Start();
+				gunBehavior.ProcessShoot(Bullet.BulletTypesLists.charge, GlobalPosition, GetGlobalMousePosition(), this);
+				chargeDuration.Start();
 			}
 			else if (isPrimary)
 			{
@@ -75,5 +77,14 @@ public partial class LazerGun : Sprite2D
 	{
 		isSecondary = true;
 	}
+	
+	public void onChargeDuration()
+	{
+		isCharge = false;
+		chargeTimer.Start();
+	}
 
 }
+
+
+

@@ -61,7 +61,7 @@ public partial class Bullet : Area2D
 					break;
 				case BulletTypesLists.secondary:
 					enemy.OnDamage(1);
-					enemy.OnStun((1);
+					enemy.OnStun(1);
 					break;
 				case BulletTypesLists.primary:
 					enemy.OnDamage(2);

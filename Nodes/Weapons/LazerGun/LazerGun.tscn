@@ -15,9 +15,13 @@ script = ExtResource("2_b3jju")
 [node name="Primary Weapon Timer" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="Charge Timer" type="Timer" parent="."]
+[node name="Charge Weapon Duration" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Charge Weapon Timer" type="Timer" parent="."]
 wait_time = 5.0
 
 [connection signal="timeout" from="Secondary Weapon Timer" to="." method="onSecondaryTimeOut"]
 [connection signal="timeout" from="Primary Weapon Timer" to="." method="onPrimaryTimeOut"]
-[connection signal="timeout" from="Charge Timer" to="." method="onChargeTimeOut"]
+[connection signal="timeout" from="Charge Weapon Duration" to="." method="onChargeDuration"]
+[connection signal="timeout" from="Charge Weapon Timer" to="." method="onChargeTimeOut"]
