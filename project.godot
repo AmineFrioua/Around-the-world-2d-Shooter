@@ -15,6 +15,11 @@ run/main_scene="res://Nodes/Levels/Tunisia/Map 1.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://Pixel Assets/Icons/Main Icon.png"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="Around The World Shooter"

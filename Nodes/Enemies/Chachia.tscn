@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bi2p1f6dskxgh" path="res://Nodes/StatusComponents/StunStatus.tscn" id="10_utks5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q72mk"]
-radius = 114.63
+radius = 200.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ircul"]
 atlas = ExtResource("3_ww6n8")
