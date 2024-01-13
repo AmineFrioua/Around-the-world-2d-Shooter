@@ -91,7 +91,7 @@ public partial class StunStatus : Node, IStatus
     {
         Timer timer = new Timer();
 
-        timer.OneShot = false;
+        timer.OneShot = true;
 
         AddChild(timer);
 
