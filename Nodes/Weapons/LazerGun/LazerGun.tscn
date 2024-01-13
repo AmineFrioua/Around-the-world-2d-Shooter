@@ -17,3 +17,7 @@ wait_time = 0.1
 
 [node name="Charge Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[connection signal="timeout" from="Secondary Weapon Timer" to="." method="onSecondaryTimeOut"]
+[connection signal="timeout" from="Primary Weapon Timer" to="." method="onPrimaryTimeOut"]
+[connection signal="timeout" from="Charge Timer" to="." method="onChargeTimeOut"]

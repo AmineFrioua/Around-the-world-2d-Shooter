@@ -9642,15 +9642,10 @@ sources/4 = SubResource("TileSetAtlasSource_tnyxo")
 sources/5 = SubResource("TileSetAtlasSource_jw1dt")
 
 [node name="Level" type="Node2D"]
-position = Vector2(582, 0)
-
-[node name="Chachia4" parent="." instance=ExtResource("1_47p7i")]
-position = Vector2(318, 160)
-
-[node name="Chachia3" parent="." instance=ExtResource("1_47p7i")]
-position = Vector2(-362, 487)
+position = Vector2(1187, -24)
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-575, 5)
 tile_set = SubResource("TileSet_5lpdn")
 collision_animatable = true
 collision_visibility_mode = 1
@@ -9670,7 +9665,7 @@ layer_2/tile_data = PackedInt32Array(327676, 5, 0, 393212, 5, 1, 458748, 5, 2, 5
 position = Vector2(1, 309)
 
 [node name="Chachia" parent="." instance=ExtResource("1_47p7i")]
-position = Vector2(300, 431)
+position = Vector2(-784, 270)
 
 [node name="Chachia2" parent="." instance=ExtResource("1_47p7i")]
-position = Vector2(-272, 217)
+position = Vector2(-333, 286)

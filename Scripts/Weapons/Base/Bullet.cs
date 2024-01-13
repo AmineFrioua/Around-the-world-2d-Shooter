@@ -57,13 +57,14 @@ public partial class Bullet : Area2D
 			switch (BulletType)
 			{
 				case BulletTypesLists.charge:
-					enemy.OnDamage();
+					enemy.OnDamage(10);
 					break;
 				case BulletTypesLists.secondary:
-					//do something
+					enemy.OnDamage(1);
+					enemy.OnStun((1);
 					break;
 				case BulletTypesLists.primary:
-					enemy.OnDamage();
+					enemy.OnDamage(2);
 					break;
 			}
 
