@@ -4,7 +4,17 @@ using System;
 public partial class Bullet : Area2D
 {
 	public AnimatedSprite2D BulletAnimation;
+	public enum BulletTypesLists {
+		charge,
+		primary,
+		secondary
+	}
+	private BulletTypesLists bulletType;
+	public BulletTypesLists BulletType {get {return bulletType;}  set
+	{
+		bulletType= value;
 
+	}}
 
 	public Vector2 Velocity;
 	[Export] public float Speed = 10;
@@ -13,9 +23,21 @@ public partial class Bullet : Area2D
 	public override void _Ready()
 	{
 		LookAt(GetGlobalMousePosition());
+
 		BulletAnimation = GetNode<AnimatedSprite2D>("Bullet");
 
-		BulletAnimation.Play("default");
+		switch (BulletType)
+			{
+				case BulletTypesLists.charge:
+					BulletAnimation.Play("charge");
+					break;
+				case BulletTypesLists.secondary:
+					BulletAnimation.Play("secondary");
+					break;
+				case BulletTypesLists.primary:
+					BulletAnimation.Play("primary");
+					break;
+			}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since                                                                                                   the previous frame.
@@ -32,7 +54,19 @@ public partial class Bullet : Area2D
 
 		if (enemy != null)
 		{
-			enemy.OnDamage();
+			switch (BulletType)
+			{
+				case BulletTypesLists.charge:
+					enemy.OnDamage();
+					break;
+				case BulletTypesLists.secondary:
+					//do something
+					break;
+				case BulletTypesLists.primary:
+					enemy.OnDamage();
+					break;
+			}
+
 		}
 
 		BulletAnimation.Play("collision");

@@ -5,12 +5,19 @@ public partial class LazerGun: Sprite2D {
 
   private GunBehavior gunBehavior;
   private PackedScene bulletScene = ResourceLoader.Load<PackedScene>("res://Nodes/Weapons/LazerGun/LazerGunBullet.tscn");
- [Export]
-  public float ShootRate = 0.2f; // bullet per second
+private Timer primaryTimer ;
+private Timer secondaryTimer ;
+private Timer chargeTimer ;
+
+
+
 
 private Vector2 lastMousePosition = Vector2.Zero;
   public override void _Ready() {
-	gunBehavior= new GunBehavior(bulletScene, ShootRate ) ;
+	gunBehavior= new GunBehavior(bulletScene) ;
+	primaryTimer= GetNodeOrNull<Timer>("Primary Timer");
+	secondaryTimer= GetNodeOrNull<Timer>("Secondary Timer");
+	chargeTimer= GetNodeOrNull<Timer>("Charge Timer");
 
 }
 
@@ -30,15 +37,18 @@ private Vector2 lastMousePosition = Vector2.Zero;
 	if (Input.IsActionPressed("Action")) {
 		if(Input.IsActionPressed("Charge")){
 			GD.Print("Charge");
+			chargeTimer.Start();
 		}
 		else
 		{
-			gunBehavior.ProcessShoot(delta, GlobalPosition, GetGlobalMousePosition(), this);
+			gunBehavior.ProcessShoot(Bullet.BulletTypesLists.primary, GlobalPosition, GetGlobalMousePosition(), this);
+			primaryTimer.Start();
 		}
 	}
 	else if (Input.IsActionPressed("Secondary Action"))
 	{
-		GD.Print("PEW");
+		gunBehavior.ProcessShoot(Bullet.BulletTypesLists.secondary, GlobalPosition, GetGlobalMousePosition(), this);
+		secondaryTimer.Start();
 	}
   }
 

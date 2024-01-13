@@ -9,3 +9,11 @@ scale = Vector2(2.23047, 1.35691)
 texture = ExtResource("1_o7ukg")
 centered = false
 script = ExtResource("2_b3jju")
+
+[node name="Secondary Weapon Timer" type="Timer" parent="."]
+
+[node name="Primary Weapon Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Charge Timer" type="Timer" parent="."]
+wait_time = 5.0

@@ -1,21 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://yayi6sv86ars"]
+[gd_scene load_steps=8 format=3 uid="uid://yayi6sv86ars"]
 
 [ext_resource type="Script" path="res://Scripts/Weapons/Base/Bullet.cs" id="1_vx188"]
 [ext_resource type="Texture2D" uid="uid://cfk3ks1f4mabb" path="res://Pixel Assets/Particles/lazer beam.png" id="2_jdunq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1cg1u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2nk2"]
 atlas = ExtResource("2_jdunq")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wo5g"]
+atlas = ExtResource("2_jdunq")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcdb0"]
 atlas = ExtResource("2_jdunq")
 region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcp3n"]
+atlas = ExtResource("2_jdunq")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yenxl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1cg1u")
+"texture": SubResource("AtlasTexture_c2nk2")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wo5g")
 }],
 "loop": false,
 "name": &"collision",
@@ -26,8 +42,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_gcdb0")
 }],
 "loop": false,
-"name": &"default",
+"name": &"primary",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcp3n")
+}],
+"loop": true,
+"name": &"secondary",
+"speed": 5.0
 }]
 
 [node name="LazerGunBullet" type="Area2D"]
@@ -40,5 +64,6 @@ polygon = PackedVector2Array(-8, -1, -2, -4, 1, -4, 3, -3, 6, -2, 7, -1, 6, 1, 3
 
 [node name="Bullet" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yenxl")
+animation = &"secondary"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

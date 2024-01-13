@@ -4,34 +4,25 @@ using System;
 public class GunBehavior
 {
 	private PackedScene bulletScene;
-	private float timeSinceLastShot = 0f;
 
-	public float ShootRate { get; set; } = 0.2f; // bullets per second
-
-	public GunBehavior(PackedScene bulletScene, float shootRate)
+	public GunBehavior(PackedScene bulletScene)
 	{
 		this.bulletScene = bulletScene;
-		ShootRate=shootRate ;
 	}
 
-	public void ProcessShoot(double delta, Vector2 position, Vector2 targetPos, Node parent)
+	public void ProcessShoot(Bullet.BulletTypesLists type, Vector2 position, Vector2 targetPos, Node parent)
 	{
-		timeSinceLastShot += (float)delta;
-		if (timeSinceLastShot >= ShootRate)
-		{
-			ShootBullet(position, targetPos, parent);
-
-			timeSinceLastShot = 0f;
-		}
-	}
-
-	private void ShootBullet(Vector2 gunPosition, Vector2 targetPos, Node parent)
-	{
-
 		var bulletInstance = (Bullet)bulletScene.Instantiate();
-		Vector2 direction = (targetPos - gunPosition).Normalized();
-		bulletInstance.GlobalPosition = gunPosition;
+		
+		bulletInstance.BulletType= type;
+		
+		Vector2 direction = (targetPos - position).Normalized();
+		
+		bulletInstance.GlobalPosition = position;
+		
 		bulletInstance.Velocity = direction * bulletInstance.Speed;
+		
 		parent.GetTree().Root.AddChild(bulletInstance);
 	}
+
 }

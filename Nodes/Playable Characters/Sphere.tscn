@@ -39,7 +39,6 @@ scale = Vector2(0.177315, 0.177315)
 texture = ExtResource("2_ppslh")
 
 [node name="LazerGun" parent="Sprites" instance=ExtResource("3_b71c4")]
-ShootRate = 0.04
 
 [node name="CollisionArea" parent="." instance=ExtResource("5_frdab")]
 position = Vector2(18.1221, -3.0591)
