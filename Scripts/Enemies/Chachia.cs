@@ -1,6 +1,7 @@
 using Godot;
-using AroundTheWorldShooter.Scripts.Stat_Components;
 using AroundTheWorldShooter.Scripts.Stat_Components.Stats;
+using AroundTheWorldShooter.Scripts.Stat_Components.Stats.Health;
+using AroundTheWorldShooter.Scripts.StatusComponents;
 
 public partial class Chachia : CharacterBody2D
 {
@@ -10,6 +11,7 @@ public partial class Chachia : CharacterBody2D
 
 	private bool isStunned = false;
 	[Export()] public StatList Stats { get; set; }
+	[Export()] public StatusList Statuses { get; set; }
 
 	public override void _PhysicsProcess(double delta)
 	{

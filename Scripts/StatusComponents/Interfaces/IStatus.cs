@@ -3,5 +3,6 @@
 public interface IStatus
 {
     public IStatusView StatusView { get; }
-    public string StatName { get; }
+    public string StatusName { get; }
+    public void Start(float duration, float strength);
 }

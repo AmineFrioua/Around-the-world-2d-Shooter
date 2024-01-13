@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>AroundTheWorldShooter</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\StatusComponents\Statuses" />
+  </ItemGroup>
 </Project>

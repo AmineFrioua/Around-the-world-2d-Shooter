@@ -57,7 +57,7 @@ public partial class StatusList : Node, IReadOnlyDictionary<string, IStatus>
     {
         if (node is IStatus stat)
         {
-            statuses.Remove(stat.StatName);
+            statuses.Remove(stat.StatusName);
         }
         else
         {
@@ -79,9 +79,9 @@ public partial class StatusList : Node, IReadOnlyDictionary<string, IStatus>
     {
         if (node is IStatus stat)
         {
-            if (ContainsKey(stat.StatName) == true) return;
+            if (ContainsKey(stat.StatusName) == true) return;
 
-            statuses.Add(stat.StatName, stat);
+            statuses.Add(stat.StatusName, stat);
         }
         else
         {

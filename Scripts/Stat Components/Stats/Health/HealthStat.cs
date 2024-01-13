@@ -1,9 +1,9 @@
 using System;
+using AroundTheWorldShooter.Scripts.Stat_Components.Interfaces;
 using Godot;
 using Valossy.Loggers;
-using AroundTheWorldShooter.Scripts.Stat_Components.Interfaces;
 
-namespace AroundTheWorldShooter.Scripts.Stat_Components.Stats;
+namespace AroundTheWorldShooter.Scripts.Stat_Components.Stats.Health;
 
 [GlobalClass]
 public partial class HealthStat : Node, IStat
@@ -14,7 +14,7 @@ public partial class HealthStat : Node, IStat
 	[Export()]
 	public Control StatControl
 	{
-		get { return statControl; }
+		get { return (Control)statView; }
 		set
 		{
 			if (value is IStatView statView)
@@ -40,8 +40,6 @@ public partial class HealthStat : Node, IStat
 
 	private IStatView statView;
 
-	private Control statControl;
-	
 	public void AddValue(int value)
 	{
 		StatView.Value = Math.Clamp(StatView.Value + value, StatView.MinValue, StatView.MaxValue);

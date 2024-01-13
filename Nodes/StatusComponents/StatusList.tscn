@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c8vmfevgbqcew"]
+[gd_scene load_steps=2 format=3 uid="uid://c8vmfevgbqcew"]
+
+[ext_resource type="Script" path="res://Scripts/StatusComponents/StatusList.cs" id="1_rh6bk"]
 
 [node name="StatusList" type="Node"]
+script = ExtResource("1_rh6bk")
