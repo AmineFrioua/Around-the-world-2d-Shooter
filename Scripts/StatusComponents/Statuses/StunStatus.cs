@@ -12,10 +12,7 @@ public partial class StunStatus : Node, IStatus
     [Export()]
     public Control StatusControl
     {
-        get
-        {
-            return (Control)statusView;
-        }
+        get { return (Control)statusView; }
         set
         {
             if (value is IStatusView statusView)
@@ -41,7 +38,35 @@ public partial class StunStatus : Node, IStatus
 
     private IStatusView statusView;
 
+    private Timer timerDuration;
+    private Timer timerImmunity;
+
+    private bool immune;
+
+    public override void _Ready()
+    {
+        timerDuration = AddTimer();
+
+        timerImmunity = AddTimer();
+    }
+
     public void Start(float duration, float strength)
     {
+        if (immune == true) return;
+
+        timerDuration.WaitTime = duration;
+
+        timerDuration.Start();
+    }
+
+    private Timer AddTimer()
+    {
+        Timer timer = new Timer();
+
+        timer.OneShot = false;
+
+        AddChild(timer);
+
+        return timer;
     }
 }
