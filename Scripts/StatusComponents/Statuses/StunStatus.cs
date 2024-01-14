@@ -1,5 +1,7 @@
+using System.ComponentModel.DataAnnotations;
 using AroundTheWorldShooter.Scripts.StatusComponents.Interfaces;
 using Godot;
+using Valossy.Helpers.Nodes;
 using Valossy.Loggers;
 
 namespace AroundTheWorldShooter.Scripts.StatusComponents.Statuses;
@@ -28,6 +30,10 @@ public partial class StunStatus : Node, IStatus
             if (value is IStatusView statusView)
             {
                 this.statusView = statusView;
+            }
+            else if(value.IsValid() == false)
+            {
+                this.statusView = null;
             }
             else
             {
@@ -73,7 +79,7 @@ public partial class StunStatus : Node, IStatus
     {
         timerImmunity.Start(ImmunityDuration);
         
-        StatusView.Deactivate();
+        StatusView?.Deactivate();
         
         EmitSignal(nameof(StunRecovered));
     }
@@ -84,7 +90,7 @@ public partial class StunStatus : Node, IStatus
 
         immune = true;
         
-        StatusView.Activate();
+        StatusView?.Activate();
 
         timerDuration.Start(duration);
 
